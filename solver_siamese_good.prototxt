@@ -1,0 +1,24 @@
+net: "new_train_siamese.prototxt"
+test_iter: 50
+test_interval: 10000
+
+# lr for fine-tuning should be lower than when starting from scratch
+base_lr: 0.0005
+#lr_policy: "step"
+lr_policy: "inv"
+gamma: 0.1
+type: "SGD"
+
+# stepsize should also be lower, as we're closer to being done
+#stepsize: 3000
+power: 0.2
+display: 100
+max_iter: 50000
+momentum: 0.9
+weight_decay: 0.005
+snapshot: 10000
+snapshot_prefix: "/home/raiden/caffe/examples/siamese_face/my_network_siamese"
+
+# uncomment the following to default to CPU mode solving
+solver_mode: GPU
+
